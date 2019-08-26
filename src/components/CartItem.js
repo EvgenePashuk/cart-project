@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ChangeCountInput from './widgets/common/ChangeCountInput';
 
@@ -15,15 +15,38 @@ const TableData = styled.td`
   }
 `;
 
-const CartItem = () => {
+const RemoveButton = styled.button`
+  font-size: 16px;
+  text-align: center;
+  background-color: grey;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+`;
+
+const FlexWrapper= styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const CartItem = ({item, removeItem, addQuantity, subtractQuantity, inputQuantity}) => {
+
+    const handleClick = () => removeItem(item.id);
+
     return (
         <tr>
-            <TableData>Produce name</TableData>
-            <TableData>50 USD</TableData>
+            <TableData>{item.title}</TableData>
+            <TableData>{item.price}</TableData>
             <TableData>
-                <ChangeCountInput initialCount={1} />
+                <ChangeCountInput id={item.id} quantity={item.quantity} subtractQuantity={subtractQuantity} addQuantity={addQuantity} inputQuantity={inputQuantity} />
             </TableData>
-            <TableData>100 USD</TableData>
+            <TableData>
+                <FlexWrapper>
+                    {item.totalPrice}
+                    <RemoveButton onClick={handleClick}>-</RemoveButton>
+                </FlexWrapper>
+            </TableData>
         </tr>
     )
 };

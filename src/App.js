@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 
 import Cart from './components/Cart';
 import Products from './components/Products';
+import { addToCart, removeItem, addQuantity, subtractQuantity, inputQuantity } from './components/actions/cartActions';
 
 const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 1024px;
+    max-width: 768px;
     margin: 50px auto 0;
 `;
 
@@ -20,14 +21,14 @@ const ProductsWrapper = styled.div`
   margin-bottom: 30px;
 `;
 
-const App = ({products}) => {
+const App = ({products, addedItems, total, addToCart, removeItem, addQuantity, subtractQuantity, inputQuantity }) => {
   return (
       <ContentWrapper>
           <CartWrapper>
-              <Cart />
+              <Cart addedItems={addedItems} total={total} removeItem={removeItem} addQuantity={addQuantity} subtractQuantity={subtractQuantity} inputQuantity={inputQuantity}/>
           </CartWrapper>
           <ProductsWrapper>
-              <Products products={products} />
+              <Products products={products} addToCart={addToCart} />
           </ProductsWrapper>
       </ContentWrapper>
   )
@@ -35,8 +36,20 @@ const App = ({products}) => {
 
 const mapStateToProps = (state)=>{
     return {
-        products: state.products
+        products: state.products,
+        addedItems: state.addedItems,
+        total: state.total
     }
 };
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = ( dispatch ) => {
+    return {
+        addToCart: ( id ) => { dispatch(addToCart(id)) },
+        removeItem: ( id ) => { dispatch(removeItem(id)) },
+        addQuantity: ( id ) => { dispatch(addQuantity(id)) },
+        subtractQuantity: ( id ) => { dispatch(subtractQuantity(id)) },
+        inputQuantity: ( id, quantity ) => { dispatch(inputQuantity(id, quantity)) }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

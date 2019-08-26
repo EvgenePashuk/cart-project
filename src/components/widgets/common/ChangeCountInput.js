@@ -45,21 +45,18 @@ const Input = styled.input`
   }
 `;
 
-const ChangeCountInput = ({initialCount}) => {
-    const [count, setCount] = useState(initialCount);
+const ChangeCountInput = ({id, quantity, addQuantity, subtractQuantity, inputQuantity}) => {
 
-    const handleChange = (event) => {
-        setCount(event.target.value)
-    };
+    const handleChange = (event) => inputQuantity(id, event.target.value);
 
-    const handleIncrease = () => setCount(count + 1);
+    const handleIncrease = () => addQuantity(id);
 
-    const handleDecrease = () => setCount(count - 1);
+    const handleDecrease = () => subtractQuantity(id);
 
     return (
         <ContentWrapper>
             <Decrease onClick={handleDecrease}>-</Decrease>
-            <Input type="number" value={count} onChange={handleChange} />
+            <Input type="number" value={quantity} onChange={handleChange} />
             <Increase onClick={handleIncrease}>+</Increase>
         </ContentWrapper>
     )

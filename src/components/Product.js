@@ -35,23 +35,34 @@ const Title = styled.div`
 
 const Price = styled.div`
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 10px;
 `;
 
 const AddButton = styled.button`
-  
+  width: 100%;
+  font-size: 12px;
+  padding: 5px 0;
+  font-weight: 600;
+  background-color: #cccccc;
+  border-radius: 10px;
+  border: 1px solid #a8a8a8;
+  cursor: pointer;
 `;
 
-const Product = ({product}) => {
-    const {title, price} = product;
+const Product = ({product, addToCart}) => {
+    const {id, title, price} = product;
+
+    const handleClick = () => {
+        addToCart(id);
+    };
 
     return (
         <ProductWrapper>
             <Img />
             <Title>{title}</Title>
             <Price>{`${price} USD`}</Price>
-            <AddButton>Add to Cart</AddButton>
+            <AddButton onClick={handleClick}>Add to Cart</AddButton>
         </ProductWrapper>
     )
 };

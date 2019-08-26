@@ -45,7 +45,10 @@ const TotalAmountBlock = styled.div`
   padding: 0 20px;
 `;
 
-const Cart = () => {
+const Cart = ({addedItems, total, removeItem, addQuantity, subtractQuantity, inputQuantity}) => {
+
+    const renderCartItems = () => addedItems.map(item => <CartItem key={item.id} item={item} removeItem={removeItem} addQuantity={addQuantity} subtractQuantity={subtractQuantity} inputQuantity={inputQuantity} />);
+
     return (
         <CartWrapper>
             <Title>Cart</Title>
@@ -58,10 +61,10 @@ const Cart = () => {
                             <TableHeader>Quantity</TableHeader>
                             <TableHeader>Total price</TableHeader>
                         </tr>
-                        <CartItem />
+                        {renderCartItems()}
                     </tbody>
                 </Table>
-                <TotalAmountBlock>Total Amount: 200 USD</TotalAmountBlock>
+                <TotalAmountBlock>{`Total Amount: ${total} USD`}</TotalAmountBlock>
             </CartContent>
         </CartWrapper>
     )

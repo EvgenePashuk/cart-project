@@ -17,9 +17,9 @@ const ListWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-const Products = ({products}) => {
+const Products = ({products, addToCart}) => {
 
-    const renderProducts = () => products.map(product => <Product product={product} />)
+    const renderProducts = () => products.map(product => <Product key={product.id} product={product} addToCart={addToCart} />);
 
     return (
         <ProductsWrapper>

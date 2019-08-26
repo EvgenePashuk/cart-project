@@ -5,6 +5,8 @@ const Img = styled.div`
   position: relative;
   height: 100px;
   overflow: hidden;
+  border: 1px solid black;
+  margin-bottom: 10px;
   
    &::before, &::after {
     content: '';
@@ -16,15 +18,14 @@ const Img = styled.div`
     margin-top: -1px;
     background: #000;
   }
+  
   &::before {
     transform: rotate(45deg);
   }
+  
   &::after {
     transform: rotate(-45deg);
   }
-  
-  border: 1px solid black;
-  margin-bottom: 10px;
 `;
 
 const ProductWrapper = styled.div`
@@ -84,9 +85,7 @@ const AddButton = styled.button`
 const Product = ({product, addToCart}) => {
     const {id, title, price} = product;
 
-    const handleClick = () => {
-        addToCart(id);
-    };
+    const handleClick = () => addToCart(id);
 
     return (
         <ProductWrapper>

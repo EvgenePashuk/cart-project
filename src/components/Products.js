@@ -8,13 +8,15 @@ const ProductsWrapper = styled.div`
 
 const Title = styled.div`
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 15px;
 `;
 
 const ListWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10%;
+  grid-row-gap: 10px;
 `;
 
 const Products = ({products, addToCart}) => {

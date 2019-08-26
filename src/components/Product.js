@@ -1,30 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Img = styled.div`
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  
+   &::before, &::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #000;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+  
+  border: 1px solid black;
+  margin-bottom: 10px;
+`;
+
 const ProductWrapper = styled.div`
-  flex: 0 0 23%;
-  margin: 0 0 20px 0;
   padding: 10px 5px;
   border: 1px solid black;
   border-top: 2px solid black;
   
   :nth-child(3n + 1) {
     border-right: 2px solid black;
+    
+    ${Img} {
+      border-right: 2px solid black;
+      border-bottom: 2px solid black;
+    }
+  }
+  
+  :nth-child(3n + 2) {
+    ${Img} {
+      border-bottom: 2px solid black;
+    }
   }
   
   :nth-child(3n) {
     border-left: 2px solid black;
+    
+    ${Img} {
+      border-right: 2px solid black;
+      border-bottom: 2px solid black;
+      border-left: 2px solid black;
+    }
   }
-  
-  :nth-child(3n + 2) {
-    margin: 0 calc((100% - 3*24% - 8px)/2) 20px calc((100% - 3*24% - 8px)/2);
-  }
-`;
-
-const Img = styled.div`
-  height: 100px;
-  background-color: aqua; 
-  margin-bottom: 10px;
 `;
 
 const Title = styled.div`
@@ -35,7 +66,7 @@ const Title = styled.div`
 
 const Price = styled.div`
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 10px;
 `;
 
@@ -43,7 +74,7 @@ const AddButton = styled.button`
   width: 100%;
   font-size: 12px;
   padding: 5px 0;
-  font-weight: 600;
+  font-weight: 700;
   background-color: #cccccc;
   border-radius: 10px;
   border: 1px solid #a8a8a8;

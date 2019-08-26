@@ -8,7 +8,7 @@ const CartWrapper = styled.div`
 
 const Title = styled.div`
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 15px;
 `;
 

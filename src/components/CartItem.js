@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ChangeCountInput from './widgets/common/ChangeCountInput';
 
@@ -37,13 +37,13 @@ const CartItem = ({item, removeItem, addQuantity, subtractQuantity, inputQuantit
     return (
         <tr>
             <TableData>{item.title}</TableData>
-            <TableData>{item.price}</TableData>
+            <TableData>{`${item.price} USD`}</TableData>
             <TableData>
                 <ChangeCountInput id={item.id} quantity={item.quantity} subtractQuantity={subtractQuantity} addQuantity={addQuantity} inputQuantity={inputQuantity} />
             </TableData>
             <TableData>
                 <FlexWrapper>
-                    {item.totalPrice}
+                    {`${item.totalPrice} USD`}
                     <RemoveButton onClick={handleClick}>-</RemoveButton>
                 </FlexWrapper>
             </TableData>

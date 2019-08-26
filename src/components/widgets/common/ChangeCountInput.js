@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const ContentWrapper= styled.div`
@@ -38,6 +38,7 @@ const Input = styled.input`
   margin: 0px;
   width: 20px;
   height: 19px;
+  outline: none;
   
   ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -45,9 +46,9 @@ const Input = styled.input`
   }
 `;
 
-const ChangeCountInput = ({id, quantity, addQuantity, subtractQuantity, inputQuantity}) => {
-
-    const handleChange = (event) => inputQuantity(id, event.target.value);
+const ChangeCountInput = ({ id, quantity, addQuantity, subtractQuantity, inputQuantity }) => {
+    // experimental stuff, just add to onClick action to test it out
+    // const handleChange = event => inputQuantity(id, event.target.value);
 
     const handleIncrease = () => addQuantity(id);
 
@@ -56,7 +57,7 @@ const ChangeCountInput = ({id, quantity, addQuantity, subtractQuantity, inputQua
     return (
         <ContentWrapper>
             <Decrease onClick={handleDecrease}>-</Decrease>
-            <Input type="number" value={quantity} onChange={handleChange} />
+            <Input type="number" value={quantity} />
             <Increase onClick={handleIncrease}>+</Increase>
         </ContentWrapper>
     )

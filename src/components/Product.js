@@ -15,16 +15,15 @@ const Img = styled.div`
     width: 100%;
     top: 50%;
     left: 0;
-    margin-top: -1px;
     background: #000;
   }
   
   &::before {
-    transform: rotate(45deg);
+    transform: rotate(26deg);
   }
   
   &::after {
-    transform: rotate(-45deg);
+    transform: rotate(-26deg);
   }
 `;
 
@@ -74,7 +73,7 @@ const Price = styled.div`
 const AddButton = styled.button`
   width: 100%;
   font-size: 12px;
-  padding: 5px 0;
+  padding: 7px 0;
   font-weight: 700;
   background-color: #cccccc;
   border-radius: 10px;

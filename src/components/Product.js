@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from "prop-types";
 
 const Img = styled.div`
   position: relative;
@@ -94,6 +95,11 @@ const Product = ({product, addToCart}) => {
             <AddButton onClick={handleClick}>Add to Cart</AddButton>
         </ProductWrapper>
     )
+};
+
+Product.propTypes = {
+    product: PropTypes.object,
+    addToCart: PropTypes.func,
 };
 
 export default Product;

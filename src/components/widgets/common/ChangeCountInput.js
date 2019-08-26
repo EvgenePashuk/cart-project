@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from "prop-types";
 
 const ContentWrapper= styled.div`
   min-width: 95px;
@@ -61,6 +62,14 @@ const ChangeCountInput = ({ id, quantity, addQuantity, subtractQuantity, inputQu
             <Increase onClick={handleIncrease}>+</Increase>
         </ContentWrapper>
     )
+};
+
+ChangeCountInput.propTypes = {
+    id: PropTypes.number,
+    quantity: PropTypes.number,
+    addQuantity: PropTypes.func,
+    subtractQuantity: PropTypes.func,
+    inputQuantity: PropTypes.func,
 };
 
 export default ChangeCountInput;

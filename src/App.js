@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Cart from './components/Cart';
 import Products from './components/Products';
@@ -50,6 +51,17 @@ const mapDispatchToProps = ( dispatch ) => {
         subtractQuantity: ( id ) => { dispatch(subtractQuantity(id)) },
         inputQuantity: ( id, quantity ) => { dispatch(inputQuantity(id, quantity)) }
     }
+};
+
+App.propTypes = {
+    products: PropTypes.array,
+    addedItems: PropTypes.array,
+    total: PropTypes.number,
+    addToCart: PropTypes.func,
+    removeItem: PropTypes.func,
+    addQuantity: PropTypes.func,
+    subtractQuantity: PropTypes.func,
+    inputQuantity: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

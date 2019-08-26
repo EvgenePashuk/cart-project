@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CartItem from "./CartItem";
+import PropTypes from "prop-types";
 
 const CartWrapper = styled.div`
   padding: 0 5px;
@@ -68,6 +69,15 @@ const Cart = ({addedItems, total, removeItem, addQuantity, subtractQuantity, inp
             </CartContent>
         </CartWrapper>
     )
+};
+
+Cart.propTypes = {
+    addedItems: PropTypes.array,
+    total: PropTypes.number,
+    removeItem: PropTypes.func,
+    addQuantity: PropTypes.func,
+    subtractQuantity: PropTypes.func,
+    inputQuantity: PropTypes.func,
 };
 
 export default Cart;

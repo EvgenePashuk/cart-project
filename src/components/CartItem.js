@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ChangeCountInput from './widgets/common/ChangeCountInput';
+import PropTypes from "prop-types";
 
 const TableData = styled.td`
   font-size: 14px;
@@ -49,6 +50,14 @@ const CartItem = ({item, removeItem, addQuantity, subtractQuantity, inputQuantit
             </TableData>
         </tr>
     )
+};
+
+CartItem.propTypes = {
+    item: PropTypes.object,
+    removeItem: PropTypes.func,
+    addQuantity: PropTypes.func,
+    subtractQuantity: PropTypes.func,
+    inputQuantity: PropTypes.func,
 };
 
 export default CartItem;

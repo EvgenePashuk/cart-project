@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Product from './Product';
+import PropTypes from "prop-types";
 
 const ProductsWrapper = styled.div`
   padding: 0 5px;
@@ -31,6 +32,11 @@ const Products = ({products, addToCart}) => {
             </ListWrapper>
         </ProductsWrapper>
     )
+};
+
+Products.propTypes = {
+    products: PropTypes.array,
+    addToCart: PropTypes.func,
 };
 
 export default Products;

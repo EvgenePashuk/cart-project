@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 
-function App() {
+import Cart from './components/Cart';
+import Products from './components/Products';
+
+const ContentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    margin: 50px auto 0;
+`;
+
+const CartWrapper = styled.div`
+  margin-bottom: 30px;
+`;
+
+const ProductsWrapper = styled.div`
+  margin-bottom: 30px;
+`;
+
+const App = ({products}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <ContentWrapper>
+          <CartWrapper>
+              <Cart />
+          </CartWrapper>
+          <ProductsWrapper>
+              <Products products={products} />
+          </ProductsWrapper>
+      </ContentWrapper>
+  )
+};
 
-export default App;
+const mapStateToProps = (state)=>{
+    return {
+        products: state.products
+    }
+};
+
+export default connect(mapStateToProps)(App)

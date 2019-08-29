@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cart-project/static/css/main.34de6062.chunk.css",
+    "main.js": "/cart-project/static/js/main.84d3fc26.chunk.js",
+    "main.js.map": "/cart-project/static/js/main.84d3fc26.chunk.js.map",
+    "runtime~main.js": "/cart-project/static/js/runtime~main.17058b18.js",
+    "runtime~main.js.map": "/cart-project/static/js/runtime~main.17058b18.js.map",
+    "static/js/2.3824815e.chunk.js": "/cart-project/static/js/2.3824815e.chunk.js",
+    "static/js/2.3824815e.chunk.js.map": "/cart-project/static/js/2.3824815e.chunk.js.map",
+    "index.html": "/cart-project/index.html",
+    "precache-manifest.6f097acb2f1e871184696a0c3986c06f.js": "/cart-project/precache-manifest.6f097acb2f1e871184696a0c3986c06f.js",
+    "service-worker.js": "/cart-project/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/cart-project/static/css/main.34de6062.chunk.css.map"
+  }
+}
